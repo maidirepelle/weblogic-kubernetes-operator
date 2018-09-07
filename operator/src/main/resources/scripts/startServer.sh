@@ -144,6 +144,9 @@ trace "Finished waiting for the nodemanager to start"
 trace "Start the WebLogic Server via the nodemanager"
 wlst.sh -skipWLSModuleScanning /weblogic-operator/scripts/start-server.py
 
-trace "Wait indefinitely so that the Kubernetes pod does not exit and try to restart"
-while true; do sleep 60; done
+#trace "Wait indefinitely so that the Kubernetes pod does not exit and try to restart"
+#while true; do sleep 60; done
+
+trace "tail the server out at ${domain_home}/servers/${server_name}/logs/${server_name}.out"
+tail -F -n +0 ${domain_home}/servers/${server_name}/logs/${server_name}.out
 
