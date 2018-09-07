@@ -25,7 +25,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: voyager-path-stats
+  name: path-routing-stats
   labels:
     app: voyager-stats
 spec:

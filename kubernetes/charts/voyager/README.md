@@ -1,12 +1,13 @@
 # Voyager Helm Chart
-Official Voyager installation document: https://appscode.com/products/voyager/7.4.0/setup/install/.
+Appscode has already provided helm chart to install Voyager. See official installation document: https://appscode.com/products/voyager/7.4.0/setup/install/.
 
-## Install Steps
-As a demonstration, following are the steps to install Voyager helm chart in hostlinux.
+## Install Voyager Operator
+As a demonstration, following are the detail steps to install Voyager operator using helm chart in hostlinux.
 
-### 1. Install Utility onessl
+### 1. Install Onessl
+Onessl is a utility provided by Appscode. We'll use it to get CA certificate for K8S cluster later.
 ```
-# download onessl binary from https://github.com/kubepack/onessl/releases/tag/0.3.0
+# The pre-consumption is that you have added ~/bin to your PATH env.
 $ curl -fsSL -o onessl https://github.com/kubepack/onessl/releases/download/0.3.0/onessl-linux-amd64 \
   && chmod +x onessl \
   && mv onessl ~/bin
@@ -30,19 +31,26 @@ $ helm install appscode/voyager --name voyager-operator --version 7.4.0 \
   --set apiserver.enableValidatingWebhook=true
 ```
 
-### 4. Install two WLS Domains
-```
-$ charts/create.sh domain1
-$ charts/create.sh domain2
-```
-### 5. Install Voyager Ingress
+## Configure Voyager as Load Balancer for WLS Domains
+This chapter we'll demonstrate how to use Voyager to handle traffic to backend WLS domains.
+
+### 1. Install some WLS Domains
+Now we need to prepare some backends for Voyager to do load balancer. 
+Create two WLS domains: 
+- One domain with name 'domain1' under namespace 'default'.
+- One domain with name 'domain2' under namespace 'test1'.
+- Each domain has a webapp installed with url context 'testwebapp'.
+
+### 2. Install Voyager Ingress
 ```
 $ kubectl create -f samples/path-routing.yaml
-$ kubectl create -f samples/host-routing.yaml
 ```
-
-### 6. Change WLS Domains and Voyager Ingress Dynamically
-TBD
+Now you can send request to different WLS domains with the unique entry point of Voyager.
+```
+$ curl http://${HOSTNAME}:30307/domain1/
+$ curl http://${HOSTNAME}:30307/domain2/
+```
+To access Voyager stats web page, use URL `http://${HOSTNAME}:30317` in your web browser.
 
 ## Tips
 ### Download Voyager Helm Chart locally
@@ -50,3 +58,4 @@ You can download voyager helm chart and untar it to a local folder.
 ```
 $ helm fetch appscode/voyager --untar --version 7.4.0
 ```
+ But in most cases no need to modify the chart directly. You can do customization when you use `helm install` to install Voyager operator, specifying parameters via cmdline or provide your own values.yaml.
