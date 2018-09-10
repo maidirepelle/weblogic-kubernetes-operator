@@ -42,6 +42,18 @@ Create two WLS domains:
 - Each domain has a webapp installed with url context 'testwebapp'.
 
 ### 2. Install Voyager Ingress
+#### Install Host-routing Ingress
+```
+$ kubectl create -f samples/host-routing.yaml
+```
+Now you can send request to different WLS domains with the unique entry point of Voyager.
+```
+$ curl --silent -H 'host: domain1.org' http://${HOSTNAME}:30305/testwebapp/
+$ curl --silent -H 'host: domain2.org' http://${HOSTNAME}:30305/testwebapp/
+```
+To see the Voyager host-routing stats web page, access URL `http://${HOSTNAME}:30315` in your web browser.
+
+#### Install Path-routing Ingress
 ```
 $ kubectl create -f samples/path-routing.yaml
 ```
@@ -50,7 +62,7 @@ Now you can send request to different WLS domains with the unique entry point of
 $ curl http://${HOSTNAME}:30307/domain1/
 $ curl http://${HOSTNAME}:30307/domain2/
 ```
-To access Voyager stats web page, use URL `http://${HOSTNAME}:30317` in your web browser.
+To see the Voyager path-routing stats web page, access URL `http://${HOSTNAME}:30317` in your web browser.
 
 ## Tips
 ### Download Voyager Helm Chart locally
