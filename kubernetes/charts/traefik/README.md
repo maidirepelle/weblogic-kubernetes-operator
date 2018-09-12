@@ -24,7 +24,7 @@ Create two WLS domains:
 - Each domain has a webapp installed with url context 'testwebapp'.
 
 ### 2. Install Ingress
-#### Install Host-routing Ingress TODO
+#### Install Host-routing Ingress
 ```
 $ kubectl create -f samples/host-routing.yaml
 ```
@@ -36,7 +36,7 @@ $ curl --silent -H 'host: domain2.org' http://${HOSTNAME}:30301/testwebapp/
 
 With dashboard enabled, you can access the Traefik dashboard with URL `http://${HOSTNAME}:30301` with http Host `traefik.example.com`.
 
-#### Install Path-routing Ingress <TODO>
+#### Install Path-routing Ingress TODO
 
 ## Unstall Traefik Operator
 After removing all Ingress resources, uninstall Traefik operator.
