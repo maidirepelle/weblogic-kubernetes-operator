@@ -24,7 +24,7 @@ Create two WLS domains:
 - Each domain has a webapp installed with url context 'testwebapp'.
 
 ### 2. Install Ingress
-#### Install Host-routing Ingress
+#### Install Host-routing Ingress TODO
 ```
 $ kubectl create -f samples/host-routing.yaml
 ```
