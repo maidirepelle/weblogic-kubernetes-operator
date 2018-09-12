@@ -1,4 +1,4 @@
-# Voyager Helm Chart
+# Install and Configure Voyager with Helm Chart
 Appscode has already provided helm chart to install Voyager. See official installation document: https://appscode.com/products/voyager/7.4.0/setup/install/.
 
 ## Install Voyager Operator
@@ -20,7 +20,7 @@ $ helm repo update
 $ helm search appscode/voyager
 ```
 
-### 3. Install Voyager to K8S
+### 3. Install Voyager Operator
 ```
 # Kubernetes 1.9.x - 1.10.x
 $ kubectl create ns voyager
@@ -64,6 +64,12 @@ $ curl http://${HOSTNAME}:30307/domain2/
 ```
 To see the Voyager path-routing stats web page, access URL `http://${HOSTNAME}:30317` in your web browser.
 
+## Unstall Voyager Operator
+After removing all Voyager Ingress resources, uninstall Voyager operator.
+```
+helm delete --purge voyager-operator
+```
+
 ## Tips
 ### Download Voyager Helm Chart locally
 You can download voyager helm chart and untar it to a local folder.
@@ -71,3 +77,4 @@ You can download voyager helm chart and untar it to a local folder.
 $ helm fetch appscode/voyager --untar --version 7.4.0
 ```
  But in most cases no need to modify the chart directly. You can do customization when you use `helm install` to install Voyager operator, specifying parameters via cmdline or provide your own values.yaml.
+
