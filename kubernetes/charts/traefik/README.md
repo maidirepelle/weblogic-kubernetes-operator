@@ -23,6 +23,8 @@ Create two WLS domains:
 - One domain with name 'domain2' under namespace 'test1'.
 - Each domain has a webapp installed with url context 'testwebapp'.
 
+Note: After all WLS domains are running, for now we need to stop WLS operator and remove the per-domain Ingresses created by WLS operator. Otherwise the WLS operator keeps monitor the Ingresses and restore them to the original version if they are changed.
+
 ### 2. Install Ingress
 #### Install Host-routing Ingress
 ```
