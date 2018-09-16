@@ -36,6 +36,7 @@ This chapter we'll demonstrate how to use Voyager to handle traffic to backend W
 
 ### 1. Install some WLS Domains
 Now we need to prepare some backends for Voyager to do load balancer. 
+
 Create two WLS domains: 
 - One domain with name 'domain1' under namespace 'default'.
 - One domain with name 'domain2' under namespace 'test1'.
@@ -64,7 +65,7 @@ $ curl http://${HOSTNAME}:30307/domain2/
 ```
 To see the Voyager path-routing stats web page, access URL `http://${HOSTNAME}:30317` in your web browser.
 
-## Unstall Voyager Operator
+## Uninstall Voyager Operator
 After removing all Voyager Ingress resources, uninstall Voyager operator.
 ```
 helm delete --purge voyager-operator
