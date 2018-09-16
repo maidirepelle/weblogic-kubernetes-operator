@@ -18,6 +18,7 @@ This chapter we'll demonstrate how to use Traefik to handle traffic to backend W
 
 ### 1. Install some WLS Domains
 Now we need to prepare some backends for Traefik to do load balancer. 
+
 Create two WLS domains: 
 - One domain with name 'domain1' under namespace 'default'.
 - One domain with name 'domain2' under namespace 'test1'.
@@ -40,7 +41,7 @@ With dashboard enabled, you can access the Traefik dashboard with URL `http://${
 
 #### Install Path-routing Ingress TODO
 
-## Unstall Traefik Operator
+## Unistall Traefik Operator
 After removing all Ingress resources, uninstall Traefik operator.
 ```
 helm delete --purge traefik-operator
