@@ -41,7 +41,7 @@ With dashboard enabled, you can access the Traefik dashboard with URL `http://${
 
 #### Install Path-routing Ingress TODO
 
-## Unistall Traefik Operator
+## Uninstall Traefik Operator
 After removing all Ingress resources, uninstall Traefik operator.
 ```
 helm delete --purge traefik-operator
