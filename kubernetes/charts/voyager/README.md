@@ -1,4 +1,7 @@
 # Install and Configure Voyager
+This is to:
+* Provide detail steps how to install and uninstall Voyager operator with helm chart.
+* Provide workable Ingress samples to route workload traffic to multiple WLS domains with Voyager.
 
 ## Install Voyager Operator with Helm Chart
 Appscode has provided helm chart to install Voyager. See official installation document: https://appscode.com/products/voyager/7.4.0/setup/install/.
