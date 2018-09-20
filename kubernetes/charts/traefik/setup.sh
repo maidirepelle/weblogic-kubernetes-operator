@@ -14,4 +14,3 @@ while test $count -lt $max; do
   sleep 5
 done
 
-kubectl apply -f samples/host-routing.yaml
