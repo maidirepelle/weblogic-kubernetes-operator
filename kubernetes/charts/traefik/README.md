@@ -20,8 +20,8 @@ With dashboard enabled, you can access the Traefik dashboard with URL `http://${
 curl -H 'host: traefik.example.com' http://${HOSTNAME}:30301/
 ```
 
-## Optionally Download Traefik Helm Chart Locally if Needed
-You can download Traefik helm chart and untar it to a local folder.
+## Optionally Download Traefik Helm Chart Locally
+You can download Traefik helm chart and untar it to a local folder if you want.
 ```
 $ helm fetch  stable/traefik --untar
 ```
