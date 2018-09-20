@@ -61,3 +61,5 @@ After removing all Ingress resources, uninstall Traefik operator.
 ```
 helm delete --purge traefik-operator
 ```
+## References
+Configuration guide on Ingress for Traefik: https://docs.traefik.io/configuration/backends/kubernetes/
