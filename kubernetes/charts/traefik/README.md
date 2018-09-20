@@ -12,6 +12,16 @@ Or with a given values.yaml:
 ```
 helm install --name traefik-operator --namespace traefik --values values.yaml stable/traefik
 ```
+With dashboard enabled, you can access the Traefik dashboard with URL `http://${HOSTNAME}:30301` with http Host `traefik.example.com`.
+```
+curl -H 'host: traefik.example.com' http://${HOSTNAME}:30301/
+```
+
+## Optionally Download Traefik Helm Chart Locally if Needed
+You can download Traefik helm chart and untar it to a local folder.
+```
+$ helm fetch  stable/traefik --untar
+```
 
 ## Configure Traefik as Load Balancer for WLS Domains
 This chapter we'll demonstrate how to use Traefik to handle traffic to backend WLS domains.
@@ -31,25 +41,23 @@ Note: After all WLS domains are running, for now we need to stop WLS operator an
 ```
 $ kubectl create -f samples/host-routing.yaml
 ```
-Now you can send request to different WLS domains with the unique entry point of Traefik.
+Now you can send request to different WLS domains with the unique entry point of Traefik with different hostname.
 ```
 $ curl --silent -H 'host: domain1.org' http://${HOSTNAME}:30301/testwebapp/
 $ curl --silent -H 'host: domain2.org' http://${HOSTNAME}:30301/testwebapp/
 ```
-
-With dashboard enabled, you can access the Traefik dashboard with URL `http://${HOSTNAME}:30301` with http Host `traefik.example.com`.
-
-#### Install Path-routing Ingress TODO
+#### Install Path-routing Ingress
+```
+$ kubectl create -f samples/path-routing.yaml
+```
+Now you can send request to different WLS domains with the unique entry point of Traefik with different path.
+```
+$ curl --silent http://${HOSTNAME}:30301/testwebapp/
+$ curl --silent http://${HOSTNAME}:30301/testwebapp1/
+```
 
 ## Uninstall Traefik Operator
 After removing all Ingress resources, uninstall Traefik operator.
 ```
 helm delete --purge traefik-operator
-```
-
-## Tips
-### Download Traefik Helm Chart locally
-You can download Traefik helm chart and untar it to a local folder.
-```
-$ helm fetch  stable/traefik --untar
 ```
