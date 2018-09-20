@@ -1,7 +1,7 @@
-# Install and Configure Traefik with Helm Chart
+# Install and Configure Traefik as Load Balancer
 Traefik helm chart is in official Charts of Helm: https://github.com/helm/charts/tree/master/stable/traefik.
 
-## Install Traefik Operator
+## Install Traefik Operator with Helm Chart
 The chart is in the default repository for Helm which is located at https://kubernetes-charts.storage.googleapis.com/ and is installed by default.
 
 To install Traefik operator to namespace `traefik` with default settings:
