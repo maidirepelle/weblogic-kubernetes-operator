@@ -1,4 +1,4 @@
-# Install and Configure Voyager as Load Balancer
+# Install and Configure Voyager
 
 ## Install Voyager Operator with Helm Chart
 Appscode has provided helm chart to install Voyager. See official installation document: https://appscode.com/products/voyager/7.4.0/setup/install/.
