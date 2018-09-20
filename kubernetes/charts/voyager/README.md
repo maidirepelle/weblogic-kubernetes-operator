@@ -34,8 +34,8 @@ $ helm install appscode/voyager --name voyager-operator --version 7.4.0 \
   --set apiserver.ca="$(onessl get kube-ca)" \
   --set apiserver.enableValidatingWebhook=true
 ```
-## Optionally Download Voyager Helm Chart locally if Needed
-You can download voyager helm chart and untar it to a local folder.
+## Optionally Download Voyager Helm Chart locally
+You can download voyager helm chart and untar it to a local folder if you want.
 ```
 $ helm fetch appscode/voyager --untar --version 7.4.0
 ```
