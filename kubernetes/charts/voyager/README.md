@@ -30,6 +30,11 @@ $ helm install appscode/voyager --name voyager-operator --version 7.4.0 \
   --set apiserver.ca="$(onessl get kube-ca)" \
   --set apiserver.enableValidatingWebhook=true
 ```
+## Optionally Download Voyager Helm Chart locally if Needed
+You can download voyager helm chart and untar it to a local folder.
+```
+$ helm fetch appscode/voyager --untar --version 7.4.0
+```
 
 ## Configure Voyager as Load Balancer for WLS Domains
 This chapter we'll demonstrate how to use Voyager to handle traffic to backend WLS domains.
@@ -70,12 +75,4 @@ After removing all Voyager Ingress resources, uninstall Voyager operator.
 ```
 helm delete --purge voyager-operator
 ```
-
-## Tips
-### Download Voyager Helm Chart locally
-You can download voyager helm chart and untar it to a local folder.
-```
-$ helm fetch appscode/voyager --untar --version 7.4.0
-```
- But in most cases no need to modify the chart directly. You can do customization when you use `helm install` to install Voyager operator, specifying parameters via cmdline or provide your own values.yaml.
 
