@@ -1,4 +1,7 @@
 # Install and Configure Traefik
+This is to:
+* Provide detail steps how to install and uninstall Traefik operator with helm chart.
+* Provide workable Ingress samples to configure Treafik as load balancer to multiple WLS domains.
 
 ## Install Traefik Operator with Helm Chart
 Traefik helm chart is in official Charts of Helm: https://github.com/helm/charts/tree/master/stable/traefik. 
