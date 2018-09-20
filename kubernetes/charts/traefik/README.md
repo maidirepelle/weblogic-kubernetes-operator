@@ -20,7 +20,7 @@ With dashboard enabled, you can access the Traefik dashboard with URL `http://${
 curl -H 'host: traefik.example.com' http://${HOSTNAME}:30301/
 ```
 
-## Optionally Download Traefik Helm Chart Locally
+## Optionally Download Traefik Helm Chart
 You can download Traefik helm chart and untar it to a local folder if you want.
 ```
 $ helm fetch  stable/traefik --untar
@@ -44,7 +44,7 @@ Note: After all WLS domains are running, for now we need to stop WLS operator an
 ```
 $ kubectl create -f samples/host-routing.yaml
 ```
-Now you can send request to different WLS domains with the unique entry point of Traefik with different hostname.
+Now you can send requests to different WLS domains with the unique entry point of Traefik with different hostname.
 ```
 $ curl --silent -H 'host: domain1.org' http://${HOSTNAME}:30301/testwebapp/
 $ curl --silent -H 'host: domain2.org' http://${HOSTNAME}:30301/testwebapp/
