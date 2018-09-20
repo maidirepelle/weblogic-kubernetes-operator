@@ -1,7 +1,8 @@
-# Install and Configure Voyager with Helm Chart
+# Install and Configure Voyager as Load Balancer
+
+## Install Voyager Operator with Helm Chart
 Appscode has provided helm chart to install Voyager. See official installation document: https://appscode.com/products/voyager/7.4.0/setup/install/.
 
-## Install Voyager Operator
 As a demonstration, following are the detail steps to install Voyager operator using helm chart in hostlinux.
 
 ### 1. Install Onessl
